@@ -1,0 +1,955 @@
+{
+  "current": {
+    "color_text": "#8b767a",
+    "color_body_text": "#8b767a",
+    "color_sale_text": "#e5bdea",
+    "color_button": "#ff7d87",
+    "color_button_text": "#ffffff",
+    "color_small_button_text_border": "#7b1189",
+    "color_text_field_text": "#8b767a",
+    "color_image_overlay_text": "#ffffff",
+    "color_image_overlay": "#7b5c5c",
+    "image_overlay_opacity": 19,
+    "type_header_font": "fira_sans_n4",
+    "type_base_font": "fira_sans_n4",
+    "social_instagram_link": "https:\/\/www.instagram.com\/",
+    "favicon": "shopify:\/\/shop_images\/Asset_5_44x_cb370a73-7749-4485-ae1c-7879118281a3.png",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "align_logo": "left",
+          "logo": "shopify:\/\/shop_images\/Asset_6_44x_5405a301-e639-4f91-87d3-24d2a979a3fa.png",
+          "logo_max_width": 175,
+          "main_linklist": "main-menu",
+          "message": true,
+          "home_page_only": true,
+          "message_text": "Free USA shipping on all orders over $15! We also ship worldwide!!!",
+          "message_link": "",
+          "color_bg": "#000000",
+          "color_text": "#ffffff"
+        }
+      },
+      "hero-1": {
+        "type": "hero",
+        "disabled": true,
+        "settings": {
+          "image": "shopify:\/\/shop_images\/sailor_moon_collection_post_1.jpg",
+          "alignment": "center",
+          "hero_layout": "full_width",
+          "hero_size": "medium",
+          "text_size": "large",
+          "title": "Sailor Moon Bundle",
+          "text": "<p>Carrying case, protective shell, thumb grips, screen protector.<\/p>",
+          "button_label": "Shop Now >",
+          "button_link": "shopify:\/\/products\/sailor-moon-switch-carrying-case-nintendo-switch-hard-protective-cover-pastel-pink-purple-optional-shell-bundle-not-switch-lite"
+        }
+      },
+      "feature-row": {
+        "type": "feature-row",
+        "settings": {
+          "layout": "left",
+          "title": "Image with text",
+          "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+          "button_label": ""
+        }
+      },
+      "feature-columns": {
+        "type": "feature-columns",
+        "blocks": {
+          "feature-columns-0": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "title": "Add a title or tagline",
+              "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+              "button_label": ""
+            }
+          },
+          "feature-columns-1": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "title": "Add a title or tagline",
+              "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+              "button_label": ""
+            }
+          },
+          "feature-columns-2": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "title": "Add a title or tagline",
+              "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+              "button_label": ""
+            }
+          },
+          "7e3ad23f-e318-4ea6-be51-37a57b804922": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "title": "Add a title or tagline",
+              "text": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.<\/p>",
+              "button_label": ""
+            }
+          }
+        },
+        "block_order": [
+          "feature-columns-0",
+          "feature-columns-1",
+          "feature-columns-2",
+          "7e3ad23f-e318-4ea6-be51-37a57b804922"
+        ],
+        "settings": {
+          "title": "",
+          "align_text": "left"
+        }
+      },
+      "collection": {
+        "type": "collection",
+        "disabled": true,
+        "settings": {
+          "title": "Featured collection",
+          "collection": "",
+          "grid": 4,
+          "rows": 2,
+          "show_vendor": false,
+          "show_view_all": false
+        }
+      },
+      "quotes": {
+        "type": "quotes",
+        "blocks": {
+          "quotes-0": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p><strong>Super cute!!<\/strong><\/p><p>Fits both my ps4 controller and switch pro controller! 🥰🥰 thank you so much! - RP<\/p>",
+              "author": ""
+            }
+          },
+          "quotes-1": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
+              "author": "Author's name"
+            }
+          },
+          "quotes-2": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
+              "author": "Author's name"
+            }
+          }
+        },
+        "block_order": [
+          "quotes-0",
+          "quotes-1",
+          "quotes-2"
+        ],
+        "settings": {
+          "title": ""
+        }
+      },
+      "image-bar": {
+        "type": "image-bar",
+        "disabled": true,
+        "blocks": {
+          "c82abb1c-c5f1-4de1-b468-63c33f922c24": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/last-min.png",
+              "alignment": "center",
+              "link": "https:\/\/www.belugadesign.co\/products\/glitter-case-travel-purse?variant=40408054300825",
+              "cta_label": "Pink Glitter Bundle"
+            }
+          },
+          "image-bar-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/111.png",
+              "alignment": "center",
+              "link": "https:\/\/www.belugadesign.co\/products\/mermaid-glitter-bundle-pink-blue-bag-shell-skin-grips-nintendo-switch",
+              "cta_label": "Mermaid Glitter Bundle"
+            }
+          },
+          "image-bar-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/DSC01888.png",
+              "alignment": "center",
+              "link": "https:\/\/www.belugadesign.co\/products\/copy-of-pink-glitter-bundle-bag-shell-skin-grips-nintendo-switch",
+              "cta_label": "Black Glitter Bundle"
+            }
+          }
+        },
+        "block_order": [
+          "c82abb1c-c5f1-4de1-b468-63c33f922c24",
+          "image-bar-0",
+          "image-bar-1"
+        ],
+        "settings": {
+          "section_height": "medium"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-0": {
+            "type": "link_list",
+            "settings": {
+              "title": "",
+              "menu": "footer"
+            }
+          }
+        },
+        "block_order": [
+          "footer-0"
+        ],
+        "settings": {
+          "show_payment_icons": true,
+          "color_footer_bg": "#f6f6f6",
+          "color_footer_text": "#333232",
+          "show_locale_selector": true,
+          "show_currency_selector": true
+        }
+      },
+      "1624046539352467a2": {
+        "type": "video",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/image.png",
+          "image_position": "center center",
+          "video_link": "https:\/\/youtu.be\/PNiP11BRO7c",
+          "show_overlay": false,
+          "style": "background",
+          "height": "medium",
+          "video_title": "",
+          "text_size": "large"
+        }
+      },
+      "1624048306df4884b5": {
+        "type": "video",
+        "disabled": true,
+        "settings": {
+          "image": "shopify:\/\/shop_images\/5.png",
+          "image_position": "center center",
+          "video_link": "https:\/\/youtu.be\/4fqy4ghX99U",
+          "show_overlay": true,
+          "style": "background",
+          "height": "medium",
+          "video_title": "",
+          "text_size": "medium"
+        }
+      },
+      "16240488540cc8e5c6": {
+        "type": "image-bar",
+        "disabled": true,
+        "blocks": {
+          "16240488540cc8e5c6-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/DSC01179-2.png",
+              "alignment": "center",
+              "link": "",
+              "cta_label": ""
+            }
+          },
+          "16240488540cc8e5c6-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/big1.png",
+              "alignment": "center",
+              "link": "",
+              "cta_label": ""
+            }
+          }
+        },
+        "block_order": [
+          "16240488540cc8e5c6-0",
+          "16240488540cc8e5c6-1"
+        ],
+        "settings": {
+          "section_height": "medium"
+        }
+      },
+      "16240490981a13762a": {
+        "type": "image-bar",
+        "disabled": true,
+        "blocks": {
+          "16240490981a13762a-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/DSC01187-2.jpg",
+              "alignment": "center",
+              "link": "",
+              "cta_label": ""
+            }
+          },
+          "16240490981a13762a-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/DSC01245.png",
+              "alignment": "center",
+              "link": "",
+              "cta_label": ""
+            }
+          }
+        },
+        "block_order": [
+          "16240490981a13762a-1",
+          "16240490981a13762a-0"
+        ],
+        "settings": {
+          "section_height": "medium"
+        }
+      },
+      "1624049239734b26e0": {
+        "type": "image-bar",
+        "blocks": {
+          "ca66323a-fe79-4de3-b8e8-57b7088b6705": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/6_ea72c875-c962-41c0-8849-a1e76261bb0d.jpg",
+              "alignment": "center",
+              "link": "https:\/\/www.belugadesign.co\/collections\/bestsellers",
+              "cta_label": "Bestsellers"
+            }
+          },
+          "1624049239734b26e0-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/switch.png",
+              "alignment": "center",
+              "link": "https:\/\/www.belugadesign.co\/collections\/switch-standard-skins",
+              "cta_label": "Switch Standard Skins"
+            }
+          },
+          "1624049239734b26e0-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/lite.png",
+              "alignment": "center",
+              "link": "https:\/\/www.belugadesign.co\/collections\/switch-lite-skins",
+              "cta_label": "Switch Lite Skins"
+            }
+          }
+        },
+        "block_order": [
+          "ca66323a-fe79-4de3-b8e8-57b7088b6705",
+          "1624049239734b26e0-0",
+          "1624049239734b26e0-1"
+        ],
+        "settings": {
+          "section_height": "medium"
+        }
+      },
+      "1624481462194f9ceb": {
+        "type": "image-bar",
+        "blocks": {
+          "1624481462194f9ceb-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/ImagefromiOS_2_1024x1024_2x_b194a48c-0cd3-4546-a946-f78cf38408f2.jpg",
+              "alignment": "center",
+              "link": "shopify:\/\/collections\/sales-1",
+              "cta_label": "On Sale!"
+            }
+          },
+          "1624481462194f9ceb-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/csakura.png",
+              "alignment": "center",
+              "link": "https:\/\/www.belugadesign.co\/collections\/switch-cases",
+              "cta_label": "Switch Cases"
+            }
+          },
+          "1624481462194f9ceb-2": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/sailormoon_bundle1.png",
+              "alignment": "bottom",
+              "link": "https:\/\/www.belugadesign.co\/collections\/thumb-grips-button-caps",
+              "cta_label": "Thumb Grips, Button Caps"
+            }
+          }
+        },
+        "block_order": [
+          "1624481462194f9ceb-0",
+          "1624481462194f9ceb-1",
+          "1624481462194f9ceb-2"
+        ],
+        "settings": {
+          "section_height": "large"
+        }
+      },
+      "1624482825c6d629db": {
+        "type": "feature-columns",
+        "blocks": {
+          "1624482825c6d629db-0": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/sakura_pro_controller_c49a397e-ec1a-4810-9666-35500d692f2a.jpg",
+              "title": "Super cute!!",
+              "text": "<p>Fits both my ps4 controller and switch pro controller! 🥰🥰 thank you so much! - RP<br\/><br\/><a href=\"\/products\/sakura-thumb-grip-pro-controller-joystick-cap-cover-pack-of-4-switch-pro-ps4\" title=\"Sakura Thumb Grip - Pro Controller, Joystick Cap Cover - Pack of 4 - Switch Pro, PS4\"><strong>Shop Now &gt;<\/strong><\/a><\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "1624482825c6d629db-1": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/heart_replacement_button_review_1_c3237b4f-eb64-44f4-8aee-fa65287e46ac.jpg",
+              "title": "Absolutely perfect!",
+              "text": "<p>\"i bought these buttons to finish off my customized switch and they're absolutely perfect! they fix perfectly, shipped fast, and look adorable!\" - MB<br\/><br\/><a href=\"\/products\/heart-pastel-or-pink-button-replacements-nintendo-switch-joy-con-pink-and-purple-thumb-grips-assembly-required-tools-provided\" title=\"Heart Pastel or Pink Button Replacements - Nintendo Switch Joy Con - Pink and Purple Thumb Grips - Assembly REQUIRED, Tools Provided\"><strong>Shop Now &gt;<\/strong><\/a><\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "1624482825c6d629db-2": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/animal_crossing_skin_4222b010-c73a-4900-977b-c0d211ba1ebe.jpg",
+              "title": "Great birthday gift for my partner!",
+              "text": "<p>\"I can’t say enough good things about this skin, it is super high quality durable material, with an excellent matte finish that feels like it will last.\" - KL<\/p><p><\/p><p><a href=\"\/products\/animal-crossing-full-set-nintendo-switch-skin-sticker-decal-6-pieces-new-horizons-optional-4-thumb-grips\" title=\"Animal Crossing - Full Set Nintendo Switch Skin & Sticker Decal\"><strong>Shop Now &gt;<\/strong><\/a><\/p>",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1624482825c6d629db-0",
+          "1624482825c6d629db-1",
+          "1624482825c6d629db-2"
+        ],
+        "settings": {
+          "title": "Reviews from our customers",
+          "align_text": "left"
+        }
+      },
+      "16244831717ffac082": {
+        "type": "newsletter",
+        "settings": {
+          "section_title": "Subscribe to our newsletter",
+          "subheading": "<p>Promotions, new products and sales. Directly to your inbox.<\/p>",
+          "show_background": false
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "show_quantity_selector": true,
+          "show_vendor": false,
+          "enable_payment_button": true,
+          "show_share_buttons": true,
+          "media_size": "medium",
+          "enable_image_zoom": true,
+          "enable_video_looping": true
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "You may also like",
+          "show_vendor": false
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": 3,
+          "rows": 4,
+          "show_collection_image": false,
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": false
+        }
+      },
+      "16245471527d50bfb2": {
+        "type": "hero",
+        "disabled": true,
+        "settings": {
+          "image": "shopify:\/\/shop_images\/lemon_bundle_1.jpg",
+          "alignment": "center",
+          "hero_layout": "full_width",
+          "hero_size": "medium",
+          "text_size": "medium",
+          "title": "Lemon Switch Bundle",
+          "text": "",
+          "button_label": "Shop Now >",
+          "button_link": "shopify:\/\/products\/lemon-switch-case-cute-fruit-nintendo-switch-or-lite-shell-thumb-grips-optional-travel-bundle"
+        }
+      },
+      "16245487656fe10b7e": {
+        "type": "image-bar",
+        "blocks": {
+          "16245487656fe10b7e-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/sailor_moon.png",
+              "alignment": "center",
+              "link": "https:\/\/www.belugadesign.co\/products\/sailor-moon-switch-carrying-case-nintendo-switch-hard-protective-cover-pastel-pink-purple-optional-shell-bundle-not-switch-lite",
+              "cta_label": "Sailor Moon Bundle"
+            }
+          },
+          "16245487656fe10b7e-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/lemon.png",
+              "alignment": "center",
+              "link": "https:\/\/www.belugadesign.co\/products\/lemon-switch-case-cute-fruit-nintendo-switch-or-lite-shell-thumb-grips-optional-travel-bundle",
+              "cta_label": "Lemon Bundle"
+            }
+          }
+        },
+        "block_order": [
+          "16245487656fe10b7e-0",
+          "16245487656fe10b7e-1"
+        ],
+        "settings": {
+          "section_height": "large"
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "settings": {
+          "display_type": "all",
+          "sort": "alphabetical",
+          "grid": 3
+        }
+      },
+      "16316537810395ce45": {
+        "type": "image-bar",
+        "blocks": {
+          "16316537810395ce45-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/3.jpg",
+              "alignment": "center",
+              "link": "https:\/\/www.belugadesign.co\/collections\/fashion",
+              "cta_label": "Home"
+            }
+          },
+          "16316537810395ce45-1": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/lunaslipperwithbackground_1080x_069f9a45-e72b-45cb-824f-4ba9c09bcd6b.jpg",
+              "alignment": "center",
+              "link": "https:\/\/www.belugadesign.co\/collections\/fashion-1",
+              "cta_label": "Fashion"
+            }
+          }
+        },
+        "block_order": [
+          "16316537810395ce45-0",
+          "16316537810395ce45-1"
+        ],
+        "settings": {
+          "section_height": "medium"
+        }
+      }
+    },
+    "content_for_index": [
+      "16245487656fe10b7e",
+      "hero-1",
+      "16245471527d50bfb2",
+      "image-bar",
+      "1624049239734b26e0",
+      "1624481462194f9ceb",
+      "16316537810395ce45",
+      "16240488540cc8e5c6",
+      "16240490981a13762a",
+      "1624046539352467a2",
+      "1624048306df4884b5",
+      "16244831717ffac082",
+      "1624482825c6d629db"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {}
+        },
+        "hero-1": {
+          "type": "hero",
+          "settings": {
+            "hero_size": "large",
+            "text_size": "large"
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {}
+        },
+        "feature-columns": {
+          "type": "feature-columns",
+          "blocks": {
+            "feature-columns-0": {
+              "type": "text_block",
+              "settings": {}
+            },
+            "feature-columns-1": {
+              "type": "text_block",
+              "settings": {}
+            },
+            "feature-columns-2": {
+              "type": "text_block",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "feature-columns-0",
+            "feature-columns-1",
+            "feature-columns-2"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "collection": {
+          "type": "collection",
+          "settings": {
+            "grid": 4
+          }
+        },
+        "hero-2": {
+          "type": "hero",
+          "settings": {
+            "text_size": "large"
+          }
+        },
+        "quotes": {
+          "type": "quotes",
+          "blocks": {
+            "quotes-0": {
+              "type": "quote",
+              "settings": {}
+            },
+            "quotes-1": {
+              "type": "quote",
+              "settings": {}
+            },
+            "quotes-2": {
+              "type": "quote",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "quotes-0",
+            "quotes-1",
+            "quotes-2"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "image-bar": {
+          "type": "image-bar",
+          "blocks": {
+            "image-bar-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "image-bar-1": {
+              "type": "image",
+              "settings": {}
+            },
+            "image-bar-2": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "image-bar-0",
+            "image-bar-1",
+            "image-bar-2"
+          ],
+          "settings": {}
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "link_list",
+              "settings": {}
+            },
+            "footer-1": {
+              "type": "newsletter",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1"
+          ],
+          "settings": {
+            "show_payment_icons": true
+          }
+        }
+      },
+      "content_for_index": [
+        "hero-1",
+        "feature-row",
+        "feature-columns",
+        "collection",
+        "hero-2",
+        "quotes",
+        "image-bar"
+      ]
+    },
+    "Light": {
+      "color_text": "#162950",
+      "color_body_text": "#6d6d6d",
+      "color_sale_text": "#DA2F0C",
+      "color_borders": "#e4e4e4",
+      "color_button": "#DA2F0C",
+      "color_button_text": "#ffffff",
+      "color_small_button_text_border": "#162950",
+      "color_text_field": "#ffffff",
+      "color_text_field_text": "#162950",
+      "color_text_field_border": "#909090",
+      "color_image_overlay_text": "#ffffff",
+      "color_image_overlay": "#3d3d3d",
+      "image_overlay_opacity": 40,
+      "color_body_bg": "#f8f8f8",
+      "type_header_font": "muli_n6",
+      "type_header_base_size": 26,
+      "type_base_font": "muli_n4",
+      "type_base_size": 18,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#e8f3f6",
+      "checkout_heading_font": "Roboto",
+      "checkout_body_font": "Source Sans Pro",
+      "checkout_accent_color": "#1990c6",
+      "checkout_button_color": "#23314e",
+      "checkout_error_color": "#ff6d6d",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "align_logo": "left",
+            "logo": "",
+            "logo_max_width": 135,
+            "main_linklist": "main-menu",
+            "message": true,
+            "color_bg": "#162950",
+            "color_text": "#ffffff"
+          }
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "alignment": "center",
+            "hero_size": "x-large",
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center center"
+              }
+            },
+            "1492095993817": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center"
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "1492095993817"
+          ],
+          "settings": {
+            "slideshow_height": "medium",
+            "text_size": "medium",
+            "autorotate": false,
+            "autorotate_speed": 5
+          }
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "grid": 3,
+            "rows": 1,
+            "show_vendor": true,
+            "show_view_all": true
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "show_quantity_selector": false,
+            "show_vendor": false,
+            "show_share_buttons": true,
+            "media_size": "medium",
+            "enable_image_zoom": true,
+            "enable_video_looping": false
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "layout": "grid",
+            "grid": 2,
+            "rows": 2,
+            "show_collection_image": true,
+            "show_vendor": false,
+            "sort_enable": true,
+            "tags_enable": true
+          }
+        },
+        "1492033809691": {
+          "type": "map",
+          "settings": {}
+        },
+        "1492033877875": {
+          "type": "quotes",
+          "blocks": {
+            "1492033877875-0": {
+              "type": "quote",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492033877875-0"
+          ],
+          "settings": {}
+        },
+        "1492033924902": {
+          "type": "custom-content",
+          "blocks": {
+            "1492033924902-0": {
+              "type": "text",
+              "settings": {
+                "width": "100%",
+                "alignment": "center",
+                "align_text": "center"
+              }
+            }
+          },
+          "block_order": [
+            "1492033924902-0"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "1492096252560": {
+          "type": "collection-list",
+          "blocks": {
+            "1492096252560-0": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-1": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-2": {
+              "type": "featured_collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492096252560-0",
+            "1492096252560-1",
+            "1492096252560-2"
+          ],
+          "settings": {
+            "grid": 3
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "layout": "grid",
+            "blog_show_author": true,
+            "blog_show_date": false
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_author": true,
+            "blog_show_date": true,
+            "show_share_buttons": true
+          }
+        },
+        "cart-template": {
+          "type": "cart-template",
+          "settings": {
+            "cart_notes_enable": false
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "link_list": {
+              "type": "link_list",
+              "settings": {}
+            },
+            "text": {
+              "type": "text",
+              "settings": {}
+            },
+            "newsletter": {
+              "type": "newsletter",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "link_list",
+            "text",
+            "newsletter"
+          ],
+          "settings": {
+            "color_footer_bg": "#f8f8f8",
+            "color_footer_text": "#6d6d6d"
+          }
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "slideshow",
+        "1492033924902",
+        "1492096252560",
+        "1492033877875",
+        "1492033809691"
+      ]
+    }
+  }
+}
