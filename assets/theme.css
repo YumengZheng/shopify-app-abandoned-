@@ -4864,13 +4864,6 @@ hr {
       -o-align-items: center;
       align-items: center; } }
 
-/*================ Mobile Icon Nav ================*/
-.icon-buttons{
-  border: 1px solid red;
-  height: 50px;
-}
-
-
 /*================ Modals ================*/
 .modal {
   -ms-transform: translateY(-20px);
