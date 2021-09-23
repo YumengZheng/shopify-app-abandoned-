@@ -40,11 +40,18 @@
         }
         
         .icon-buttons{
+          display: flex;
+          flex-direction: row;
+          justify-content:space-around;
           border: 1px solid red;
           height: 50px;
           color: {{ section.settings.color_icon }};
         }
         .icon-buttons p{
+          width:50px;
+          height: 50px;
+          border:1px solid green;
+          border-radius: 50%;
           color: {{ section.settings.color_icon }};
         }
       </style>
@@ -252,7 +259,10 @@
       </ul>
     </nav>
     <div class="icon-buttons">
-      <p>{{ section.settings.icon_label | escape }}</p>
+      <p>{{ section.settings.icon_label_1 | escape }}</p>
+      <p>{{ section.settings.icon_label_2| escape }}</p>
+      <p>{{ section.settings.icon_label_3 | escape }}</p>
+      <p>{{ section.settings.icon_label_4 | escape }}</p>
     </div>
   </header>
 
@@ -740,7 +750,7 @@
     },
     {
       "type": "text",
-      "id": "icon_label",
+      "id": "icon_label_1",
       "label": {
         "cs": "Titulek",
         "da": "Billedtekst",
@@ -766,36 +776,8 @@
       }
     },
     {
-      "type": "color",
-      "id": "color_icon",
-      "label": {
-        "cs": "Text",
-        "da": "Tekst",
-        "de": "Text",
-        "en": "Text",
-        "es": "Texto",
-        "fi": "Teksti",
-        "fr": "Texte",
-        "it": "Testo",
-        "ja": "テキスト",
-        "ko": "텍스트",
-        "nb": "Tekst",
-        "nl": "Tekst",
-        "pl": "Tekst",
-        "pt-BR": "Texto",
-        "pt-PT": "Texto",
-        "sv": "Text",
-        "th": "ข้อความ",
-        "tr": "Metin",
-        "vi": "Văn bản",
-        "zh-CN": "文本",
-        "zh-TW": "文字"
-      },
-      "default": "#ffffff"
-    },
-    {
       "type": "url",
-      "id": "icon_link",
+      "id": "icon_link_1",
       "label": {
         "cs": "Odkaz",
         "da": "Link",
@@ -842,6 +824,263 @@
         "zh-CN": "可选",
         "zh-TW": "(選填)"
       }
+    },{
+      "type": "text",
+      "id": "icon_label_2",
+      "label": {
+        "cs": "Titulek",
+        "da": "Billedtekst",
+        "de": "Unterschrift",
+        "en": "Caption",
+        "es": "Leyenda",
+        "fi": "Kuvateksti",
+        "fr": "Légende",
+        "it": "Didascalia",
+        "ja": "キャプション",
+        "ko": "캡션",
+        "nb": "Bildetekst",
+        "nl": "Bijschrift",
+        "pl": "Napisy",
+        "pt-BR": "Legenda",
+        "pt-PT": "Legenda",
+        "sv": "Rubrik",
+        "th": "คำบรรยาย",
+        "tr": "Alt yazı",
+        "vi": "Phụ đề",
+        "zh-CN": "字幕",
+        "zh-TW": "說明"
+      }
+    },
+    {
+      "type": "url",
+      "id": "icon_link_2",
+      "label": {
+        "cs": "Odkaz",
+        "da": "Link",
+        "de": "Link",
+        "en": "Link",
+        "es": "Enlace",
+        "fi": "Linkki",
+        "fr": "Lien",
+        "it": "Link",
+        "ja": "リンク",
+        "ko": "링크",
+        "nb": "Kobling",
+        "nl": "Link",
+        "pl": "Link",
+        "pt-BR": "Link",
+        "pt-PT": "Ligação",
+        "sv": "Länk",
+        "th": "ลิงก์",
+        "tr": "Bağlantı",
+        "vi": "Liên kết",
+        "zh-CN": "链接",
+        "zh-TW": "連結"
+      },
+      "info": {
+        "cs": "Volitelné",
+        "da": "Valgfri",
+        "de": "Optional",
+        "en": "Optional",
+        "es": "Opcional",
+        "fi": "Valinnainen",
+        "fr": "Facultatif",
+        "it": "Facoltativo",
+        "ja": "オプション",
+        "ko": "선택 사항",
+        "nb": "Valgfritt",
+        "nl": "Optioneel",
+        "pl": "Opcjonalnie",
+        "pt-BR": "Opcional",
+        "pt-PT": "Opcional",
+        "sv": "Valfritt",
+        "th": "ไม่จำเป็น",
+        "tr": "İsteğe bağlı",
+        "vi": "Không bắt buộc",
+        "zh-CN": "可选",
+        "zh-TW": "(選填)"
+      }
+    },{
+      "type": "text",
+      "id": "icon_label_3",
+      "label": {
+        "cs": "Titulek",
+        "da": "Billedtekst",
+        "de": "Unterschrift",
+        "en": "Caption",
+        "es": "Leyenda",
+        "fi": "Kuvateksti",
+        "fr": "Légende",
+        "it": "Didascalia",
+        "ja": "キャプション",
+        "ko": "캡션",
+        "nb": "Bildetekst",
+        "nl": "Bijschrift",
+        "pl": "Napisy",
+        "pt-BR": "Legenda",
+        "pt-PT": "Legenda",
+        "sv": "Rubrik",
+        "th": "คำบรรยาย",
+        "tr": "Alt yazı",
+        "vi": "Phụ đề",
+        "zh-CN": "字幕",
+        "zh-TW": "說明"
+      }
+    },
+    {
+      "type": "url",
+      "id": "icon_link_3",
+      "label": {
+        "cs": "Odkaz",
+        "da": "Link",
+        "de": "Link",
+        "en": "Link",
+        "es": "Enlace",
+        "fi": "Linkki",
+        "fr": "Lien",
+        "it": "Link",
+        "ja": "リンク",
+        "ko": "링크",
+        "nb": "Kobling",
+        "nl": "Link",
+        "pl": "Link",
+        "pt-BR": "Link",
+        "pt-PT": "Ligação",
+        "sv": "Länk",
+        "th": "ลิงก์",
+        "tr": "Bağlantı",
+        "vi": "Liên kết",
+        "zh-CN": "链接",
+        "zh-TW": "連結"
+      },
+      "info": {
+        "cs": "Volitelné",
+        "da": "Valgfri",
+        "de": "Optional",
+        "en": "Optional",
+        "es": "Opcional",
+        "fi": "Valinnainen",
+        "fr": "Facultatif",
+        "it": "Facoltativo",
+        "ja": "オプション",
+        "ko": "선택 사항",
+        "nb": "Valgfritt",
+        "nl": "Optioneel",
+        "pl": "Opcjonalnie",
+        "pt-BR": "Opcional",
+        "pt-PT": "Opcional",
+        "sv": "Valfritt",
+        "th": "ไม่จำเป็น",
+        "tr": "İsteğe bağlı",
+        "vi": "Không bắt buộc",
+        "zh-CN": "可选",
+        "zh-TW": "(選填)"
+      }
+    },
+    {
+      "type": "text",
+      "id": "icon_label_4",
+      "label": {
+        "cs": "Titulek",
+        "da": "Billedtekst",
+        "de": "Unterschrift",
+        "en": "Caption",
+        "es": "Leyenda",
+        "fi": "Kuvateksti",
+        "fr": "Légende",
+        "it": "Didascalia",
+        "ja": "キャプション",
+        "ko": "캡션",
+        "nb": "Bildetekst",
+        "nl": "Bijschrift",
+        "pl": "Napisy",
+        "pt-BR": "Legenda",
+        "pt-PT": "Legenda",
+        "sv": "Rubrik",
+        "th": "คำบรรยาย",
+        "tr": "Alt yazı",
+        "vi": "Phụ đề",
+        "zh-CN": "字幕",
+        "zh-TW": "說明"
+      }
+    },
+    {
+      "type": "url",
+      "id": "icon_link_4",
+      "label": {
+        "cs": "Odkaz",
+        "da": "Link",
+        "de": "Link",
+        "en": "Link",
+        "es": "Enlace",
+        "fi": "Linkki",
+        "fr": "Lien",
+        "it": "Link",
+        "ja": "リンク",
+        "ko": "링크",
+        "nb": "Kobling",
+        "nl": "Link",
+        "pl": "Link",
+        "pt-BR": "Link",
+        "pt-PT": "Ligação",
+        "sv": "Länk",
+        "th": "ลิงก์",
+        "tr": "Bağlantı",
+        "vi": "Liên kết",
+        "zh-CN": "链接",
+        "zh-TW": "連結"
+      },
+      "info": {
+        "cs": "Volitelné",
+        "da": "Valgfri",
+        "de": "Optional",
+        "en": "Optional",
+        "es": "Opcional",
+        "fi": "Valinnainen",
+        "fr": "Facultatif",
+        "it": "Facoltativo",
+        "ja": "オプション",
+        "ko": "선택 사항",
+        "nb": "Valgfritt",
+        "nl": "Optioneel",
+        "pl": "Opcjonalnie",
+        "pt-BR": "Opcional",
+        "pt-PT": "Opcional",
+        "sv": "Valfritt",
+        "th": "ไม่จำเป็น",
+        "tr": "İsteğe bağlı",
+        "vi": "Không bắt buộc",
+        "zh-CN": "可选",
+        "zh-TW": "(選填)"
+      }
+    },
+    {
+      "type": "color",
+      "id": "color_icon",
+      "label": {
+        "cs": "Text",
+        "da": "Tekst",
+        "de": "Text",
+        "en": "Text",
+        "es": "Texto",
+        "fi": "Teksti",
+        "fr": "Texte",
+        "it": "Testo",
+        "ja": "テキスト",
+        "ko": "텍스트",
+        "nb": "Tekst",
+        "nl": "Tekst",
+        "pl": "Tekst",
+        "pt-BR": "Texto",
+        "pt-PT": "Texto",
+        "sv": "Text",
+        "th": "ข้อความ",
+        "tr": "Metin",
+        "vi": "Văn bản",
+        "zh-CN": "文本",
+        "zh-TW": "文字"
+      },
+      "default": "#ffffff"
     }
   ]
 }
