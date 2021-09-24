@@ -40,12 +40,12 @@
         }
         
         .icon-buttons{
+          margin-left:10px;
           display: flex;
           flex-direction: row;
           justify-content:flex-start;
           gap: 15px;
           flex-basis:content;
-          border: 1px solid red;
           height: 30px;
         }
 
@@ -56,7 +56,6 @@
           flex-basis:content;
           white-space: nowrap;
           height: 30px;
-          border: 1px solid green;
         }
 
         .icon-buttons a p{
@@ -267,15 +266,9 @@
       </ul>
     </nav>
     <div class="icon-buttons">
-      <a href="{{ section.settings.icon_link_1}}">{{ section.settings.icon_label_1 | escape }}</a>
-      <a href="{{ section.settings.icon_link_2}}">{{ section.settings.icon_label_2 | escape }}</a>
-      <a href="{{ section.settings.icon_link_3}}">{{ section.settings.icon_label_3 | escape }}</a>
-      <a href="{{ section.settings.icon_link_4}}">{{ section.settings.icon_label_4 | escape }}</a>
-      <a href="{{ section.settings.icon_link_4}}">{{ section.settings.icon_label_4 | escape }}</a>
-      <a href="{{ section.settings.icon_link_4}}">{{ section.settings.icon_label_4 | escape }}</a>
-      <a href="{{ section.settings.icon_link_4}}">{{ section.settings.icon_label_4 | escape }}</a>
-      <a href="{{ section.settings.icon_link_4}}">{{ section.settings.icon_label_4 | escape }}</a>
-
+      {% for block in section.blocks %}
+        <a href="{{ block.settings.link }}">{{ block.settings.title | upcase }}</a>
+      {% endfor %}
     </div>
   </header>
 
@@ -760,312 +753,24 @@
         "zh-TW": "文字"
       },
       "default": "#ffffff"
-    },
-    {
-      "type": "text",
-      "id": "icon_label_1",
-      "label": {
-        "cs": "Titulek",
-        "da": "Billedtekst",
-        "de": "Unterschrift",
-        "en": "Caption",
-        "es": "Leyenda",
-        "fi": "Kuvateksti",
-        "fr": "Légende",
-        "it": "Didascalia",
-        "ja": "キャプション",
-        "ko": "캡션",
-        "nb": "Bildetekst",
-        "nl": "Bijschrift",
-        "pl": "Napisy",
-        "pt-BR": "Legenda",
-        "pt-PT": "Legenda",
-        "sv": "Rubrik",
-        "th": "คำบรรยาย",
-        "tr": "Alt yazı",
-        "vi": "Phụ đề",
-        "zh-CN": "字幕",
-        "zh-TW": "說明"
-      }
-    },
-    {
-      "type": "url",
-      "id": "icon_link_1",
-      "label": {
-        "cs": "Odkaz",
-        "da": "Link",
-        "de": "Link",
-        "en": "Link",
-        "es": "Enlace",
-        "fi": "Linkki",
-        "fr": "Lien",
-        "it": "Link",
-        "ja": "リンク",
-        "ko": "링크",
-        "nb": "Kobling",
-        "nl": "Link",
-        "pl": "Link",
-        "pt-BR": "Link",
-        "pt-PT": "Ligação",
-        "sv": "Länk",
-        "th": "ลิงก์",
-        "tr": "Bağlantı",
-        "vi": "Liên kết",
-        "zh-CN": "链接",
-        "zh-TW": "連結"
-      },
-      "info": {
-        "cs": "Volitelné",
-        "da": "Valgfri",
-        "de": "Optional",
-        "en": "Optional",
-        "es": "Opcional",
-        "fi": "Valinnainen",
-        "fr": "Facultatif",
-        "it": "Facoltativo",
-        "ja": "オプション",
-        "ko": "선택 사항",
-        "nb": "Valgfritt",
-        "nl": "Optioneel",
-        "pl": "Opcjonalnie",
-        "pt-BR": "Opcional",
-        "pt-PT": "Opcional",
-        "sv": "Valfritt",
-        "th": "ไม่จำเป็น",
-        "tr": "İsteğe bağlı",
-        "vi": "Không bắt buộc",
-        "zh-CN": "可选",
-        "zh-TW": "(選填)"
-      }
-    },{
-      "type": "text",
-      "id": "icon_label_2",
-      "label": {
-        "cs": "Titulek",
-        "da": "Billedtekst",
-        "de": "Unterschrift",
-        "en": "Caption",
-        "es": "Leyenda",
-        "fi": "Kuvateksti",
-        "fr": "Légende",
-        "it": "Didascalia",
-        "ja": "キャプション",
-        "ko": "캡션",
-        "nb": "Bildetekst",
-        "nl": "Bijschrift",
-        "pl": "Napisy",
-        "pt-BR": "Legenda",
-        "pt-PT": "Legenda",
-        "sv": "Rubrik",
-        "th": "คำบรรยาย",
-        "tr": "Alt yazı",
-        "vi": "Phụ đề",
-        "zh-CN": "字幕",
-        "zh-TW": "說明"
-      }
-    },
-    {
-      "type": "url",
-      "id": "icon_link_2",
-      "label": {
-        "cs": "Odkaz",
-        "da": "Link",
-        "de": "Link",
-        "en": "Link",
-        "es": "Enlace",
-        "fi": "Linkki",
-        "fr": "Lien",
-        "it": "Link",
-        "ja": "リンク",
-        "ko": "링크",
-        "nb": "Kobling",
-        "nl": "Link",
-        "pl": "Link",
-        "pt-BR": "Link",
-        "pt-PT": "Ligação",
-        "sv": "Länk",
-        "th": "ลิงก์",
-        "tr": "Bağlantı",
-        "vi": "Liên kết",
-        "zh-CN": "链接",
-        "zh-TW": "連結"
-      },
-      "info": {
-        "cs": "Volitelné",
-        "da": "Valgfri",
-        "de": "Optional",
-        "en": "Optional",
-        "es": "Opcional",
-        "fi": "Valinnainen",
-        "fr": "Facultatif",
-        "it": "Facoltativo",
-        "ja": "オプション",
-        "ko": "선택 사항",
-        "nb": "Valgfritt",
-        "nl": "Optioneel",
-        "pl": "Opcjonalnie",
-        "pt-BR": "Opcional",
-        "pt-PT": "Opcional",
-        "sv": "Valfritt",
-        "th": "ไม่จำเป็น",
-        "tr": "İsteğe bağlı",
-        "vi": "Không bắt buộc",
-        "zh-CN": "可选",
-        "zh-TW": "(選填)"
-      }
-    },{
-      "type": "text",
-      "id": "icon_label_3",
-      "label": {
-        "cs": "Titulek",
-        "da": "Billedtekst",
-        "de": "Unterschrift",
-        "en": "Caption",
-        "es": "Leyenda",
-        "fi": "Kuvateksti",
-        "fr": "Légende",
-        "it": "Didascalia",
-        "ja": "キャプション",
-        "ko": "캡션",
-        "nb": "Bildetekst",
-        "nl": "Bijschrift",
-        "pl": "Napisy",
-        "pt-BR": "Legenda",
-        "pt-PT": "Legenda",
-        "sv": "Rubrik",
-        "th": "คำบรรยาย",
-        "tr": "Alt yazı",
-        "vi": "Phụ đề",
-        "zh-CN": "字幕",
-        "zh-TW": "說明"
-      }
-    },
-    {
-      "type": "url",
-      "id": "icon_link_3",
-      "label": {
-        "cs": "Odkaz",
-        "da": "Link",
-        "de": "Link",
-        "en": "Link",
-        "es": "Enlace",
-        "fi": "Linkki",
-        "fr": "Lien",
-        "it": "Link",
-        "ja": "リンク",
-        "ko": "링크",
-        "nb": "Kobling",
-        "nl": "Link",
-        "pl": "Link",
-        "pt-BR": "Link",
-        "pt-PT": "Ligação",
-        "sv": "Länk",
-        "th": "ลิงก์",
-        "tr": "Bağlantı",
-        "vi": "Liên kết",
-        "zh-CN": "链接",
-        "zh-TW": "連結"
-      },
-      "info": {
-        "cs": "Volitelné",
-        "da": "Valgfri",
-        "de": "Optional",
-        "en": "Optional",
-        "es": "Opcional",
-        "fi": "Valinnainen",
-        "fr": "Facultatif",
-        "it": "Facoltativo",
-        "ja": "オプション",
-        "ko": "선택 사항",
-        "nb": "Valgfritt",
-        "nl": "Optioneel",
-        "pl": "Opcjonalnie",
-        "pt-BR": "Opcional",
-        "pt-PT": "Opcional",
-        "sv": "Valfritt",
-        "th": "ไม่จำเป็น",
-        "tr": "İsteğe bağlı",
-        "vi": "Không bắt buộc",
-        "zh-CN": "可选",
-        "zh-TW": "(選填)"
-      }
-    },
-    {
-      "type": "text",
-      "id": "icon_label_4",
-      "label": {
-        "cs": "Titulek",
-        "da": "Billedtekst",
-        "de": "Unterschrift",
-        "en": "Caption",
-        "es": "Leyenda",
-        "fi": "Kuvateksti",
-        "fr": "Légende",
-        "it": "Didascalia",
-        "ja": "キャプション",
-        "ko": "캡션",
-        "nb": "Bildetekst",
-        "nl": "Bijschrift",
-        "pl": "Napisy",
-        "pt-BR": "Legenda",
-        "pt-PT": "Legenda",
-        "sv": "Rubrik",
-        "th": "คำบรรยาย",
-        "tr": "Alt yazı",
-        "vi": "Phụ đề",
-        "zh-CN": "字幕",
-        "zh-TW": "說明"
-      }
-    },
-    {
-      "type": "url",
-      "id": "icon_link_4",
-      "label": {
-        "cs": "Odkaz",
-        "da": "Link",
-        "de": "Link",
-        "en": "Link",
-        "es": "Enlace",
-        "fi": "Linkki",
-        "fr": "Lien",
-        "it": "Link",
-        "ja": "リンク",
-        "ko": "링크",
-        "nb": "Kobling",
-        "nl": "Link",
-        "pl": "Link",
-        "pt-BR": "Link",
-        "pt-PT": "Ligação",
-        "sv": "Länk",
-        "th": "ลิงก์",
-        "tr": "Bağlantı",
-        "vi": "Liên kết",
-        "zh-CN": "链接",
-        "zh-TW": "連結"
-      },
-      "info": {
-        "cs": "Volitelné",
-        "da": "Valgfri",
-        "de": "Optional",
-        "en": "Optional",
-        "es": "Opcional",
-        "fi": "Valinnainen",
-        "fr": "Facultatif",
-        "it": "Facoltativo",
-        "ja": "オプション",
-        "ko": "선택 사항",
-        "nb": "Valgfritt",
-        "nl": "Optioneel",
-        "pl": "Opcjonalnie",
-        "pt-BR": "Opcional",
-        "pt-PT": "Opcional",
-        "sv": "Valfritt",
-        "th": "ไม่จำเป็น",
-        "tr": "İsteğe bağlı",
-        "vi": "Không bắt buộc",
-        "zh-CN": "可选",
-        "zh-TW": "(選填)"
-      }
+    }
+  ],
+  "blocks":[
+  {
+    "type": "cta",
+    "name": "CTA",
+    "settings": [
+        {
+            "id": "title",
+            "type": "text",
+            "label": "Title"
+        },
+        {
+            "id": "link",
+            "type": "url",
+            "label": "Link"
+        }
+      ]
     }
   ]
 }
