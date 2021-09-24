@@ -38,30 +38,26 @@
         .announcement-bar__message {
           color: {{ section.settings.color_text }};
         }
-        
-        .icon-buttons{
-          margin-left:10px;
-          display: flex;
-          flex-direction: row;
-          justify-content:flex-start;
-          gap: 15px;
-          flex-basis:content;
-          height: 30px;
-        }
 
-        .icon-buttons a{
-          display: flex;
-          justify-content:center;
-          align-items: center;
-          flex-basis:content;
-          white-space: nowrap;
-          height: 30px;
-        }
 
-        .icon-buttons a p{
-          white-space: nowrap;
+        @media only screen and (max-width: 749px) {
+        .announcement__mobile-nav_hide {
+          display:none
         }
+        .announcement__mobile-nav_show {
+          display:block
+        }
+      }
       </style>
+<script>
+
+  $(window).on('scroll', function() {
+
+    const hideAnnouncement = $(this).scrollTop() >40
+    $(".announcement-bar").toggleClass( "announcement__mobile-nav_hide", hideAnnouncement )
+
+});
+</script>
 
       <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
         {%- unless section.settings.message_link == blank -%}
@@ -266,6 +262,30 @@
       </ul>
     </nav>
     <div class="icon-buttons">
+      <style>
+        .icon-buttons{
+          margin-left:10px;
+          display: flex;
+          flex-direction: row;
+          justify-content:flex-start;
+          gap: 15px;
+          flex-basis:content;
+          height: 30px;
+        }
+
+        .icon-buttons a{
+          display: flex;
+          justify-content:center;
+          align-items: center;
+          flex-basis:content;
+          white-space: nowrap;
+          height: 30px;
+        }
+
+        .icon-buttons a p{
+          white-space: nowrap;
+        }
+      </style>
       {% for block in section.blocks %}
         <a href="{{ block.settings.link }}">{{ block.settings.title | upcase }}</a>
       {% endfor %}
