@@ -42,17 +42,25 @@
         .icon-buttons{
           display: flex;
           flex-direction: row;
-          justify-content:space-around;
+          justify-content:flex-start;
+          gap: 15px;
+          flex-basis:content;
           border: 1px solid red;
-          height: 50px;
-          color: {{ section.settings.color_icon }};
+          height: 30px;
         }
-        .icon-buttons p{
-          width:50px;
-          height: 50px;
-          border:1px solid green;
-          border-radius: 50%;
-          color: {{ section.settings.color_icon }};
+
+        .icon-buttons a{
+          display: flex;
+          justify-content:center;
+          align-items: center;
+          flex-basis:content;
+          white-space: nowrap;
+          height: 30px;
+          border: 1px solid green;
+        }
+
+        .icon-buttons a p{
+          white-space: nowrap;
         }
       </style>
 
@@ -259,10 +267,15 @@
       </ul>
     </nav>
     <div class="icon-buttons">
-      <p>{{ section.settings.icon_label_1 | escape }}</p>
-      <p>{{ section.settings.icon_label_2| escape }}</p>
-      <p>{{ section.settings.icon_label_3 | escape }}</p>
-      <p>{{ section.settings.icon_label_4 | escape }}</p>
+      <a href="{{ section.settings.icon_link_1}}">{{ section.settings.icon_label_1 | escape }}</a>
+      <a href="{{ section.settings.icon_link_2}}">{{ section.settings.icon_label_2 | escape }}</a>
+      <a href="{{ section.settings.icon_link_3}}">{{ section.settings.icon_label_3 | escape }}</a>
+      <a href="{{ section.settings.icon_link_4}}">{{ section.settings.icon_label_4 | escape }}</a>
+      <a href="{{ section.settings.icon_link_4}}">{{ section.settings.icon_label_4 | escape }}</a>
+      <a href="{{ section.settings.icon_link_4}}">{{ section.settings.icon_label_4 | escape }}</a>
+      <a href="{{ section.settings.icon_link_4}}">{{ section.settings.icon_label_4 | escape }}</a>
+      <a href="{{ section.settings.icon_link_4}}">{{ section.settings.icon_label_4 | escape }}</a>
+
     </div>
   </header>
 
@@ -1053,34 +1066,6 @@
         "zh-CN": "可选",
         "zh-TW": "(選填)"
       }
-    },
-    {
-      "type": "color",
-      "id": "color_icon",
-      "label": {
-        "cs": "Text",
-        "da": "Tekst",
-        "de": "Text",
-        "en": "Text",
-        "es": "Texto",
-        "fi": "Teksti",
-        "fr": "Texte",
-        "it": "Testo",
-        "ja": "テキスト",
-        "ko": "텍스트",
-        "nb": "Tekst",
-        "nl": "Tekst",
-        "pl": "Tekst",
-        "pt-BR": "Texto",
-        "pt-PT": "Texto",
-        "sv": "Text",
-        "th": "ข้อความ",
-        "tr": "Metin",
-        "vi": "Văn bản",
-        "zh-CN": "文本",
-        "zh-TW": "文字"
-      },
-      "default": "#ffffff"
     }
   ]
 }
