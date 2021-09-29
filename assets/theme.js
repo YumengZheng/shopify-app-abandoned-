@@ -3746,9 +3746,9 @@ theme.Slideshow = (function () {
         move: function (event, direction, difference) {
           this._onTouchMove(event, direction, difference);
         }.bind(this),
-        end: function (event, direction, difference) {
-          this._onTouchEnd(event, direction, difference);
-        }.bind(this)
+        // end: function (event, direction, difference) {
+          // this._onTouchEnd(event, direction, difference);s
+        // }.bind(this)
       });
     },
 
@@ -3776,6 +3776,12 @@ theme.Slideshow = (function () {
         sliderItem.setAttribute('tabindex', -1);
         var sliderImage = sliderItem.querySelector("img")
         var sliderImageWidth = sliderImage.naturalWidth*300/sliderImage.naturalHeight;
+        if(sliderImageWidth>this.sliderContainer.offsetWidth){
+          sliderImageWidth = this.sliderContainer.offsetWidth
+          sliderItem.style.height = "auto"
+          sliderItem.style.margin = "auto"
+          sliderImage.style.minHeight = 0
+        }
         this.sliderItemWidthTotal =
         this.sliderItemWidthTotal + sliderImageWidth
         sliderItem.style.width = sliderImageWidth + 'px';
