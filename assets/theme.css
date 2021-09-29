@@ -3107,7 +3107,8 @@ hr {
     flex-wrap: wrap; } }
 
 .product-single__thumbnails-item {
-  padding-left: 5px; }
+  /* padding-left: 5px; */
+ }
   @media only screen and (max-width: 749px) {
     .product-single__unique-size{
       min-width: 300px;
@@ -3128,11 +3129,13 @@ hr {
 
 @media only screen and (max-width: 749px) {
   .product-single__thumbnails-item-slide {
+    border: 1px solid yellow;
     display: block;
     float: left;
     height: 100%;
     min-height: 1px;
-    padding: 5px 2.5px; } }
+    /* padding: 5px 2.5px;  */
+  } }
 
 @media only screen and (min-width: 750px) {
   .product-single__thumbnails-item--small {
