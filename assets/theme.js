@@ -3772,11 +3772,13 @@ theme.Slideshow = (function () {
       // Set container width to accomodate all items
       this.slides.forEach(function (sliderItem, index) {
         var sliderItemLink = sliderItem.querySelector(selectors.sliderItemLink);
-        sliderItem.style.width = this.sliderItemWidth + 'px';
         sliderItem.setAttribute('aria-hidden', true);
         sliderItem.setAttribute('tabindex', -1);
+        var sliderImage = sliderItem.querySelector("img")
+        var sliderImageWidth = sliderImage.naturalWidth*300/sliderImage.naturalHeight;
         this.sliderItemWidthTotal =
-          this.sliderItemWidthTotal + sliderItem.offsetWidth;
+        this.sliderItemWidthTotal + sliderImageWidth
+        sliderItem.style.width = sliderImageWidth + 'px';
 
         if (sliderItemLink) {
           sliderItemLink.setAttribute('tabindex', -1);
@@ -8758,7 +8760,7 @@ theme.Product = (function () {
               canUseTouchEvents: true,
               type: 'slide',
               slideActiveClass: 'slick-active',
-              slidesToShow: 3,
+              slidesToShow: 1.2,
               slidesToScroll: 3
             }
           );
