@@ -2970,9 +2970,11 @@ hr {
 
 @media only screen and (max-width: 749px) {
   .product-single__media-group {
-    margin-bottom: 30px; }
+    /* margin-bottom: 30px;  */
+  }
   .product-single__media--has-thumbnails {
-    margin-bottom: 30px; } }
+    margin-bottom: 30px; 
+  } }
 
 .product-single__media-group--full {
   margin-bottom: 30px; }
