@@ -2,6 +2,7 @@ window.theme = window.theme || {};
 
 /* ================ SLATE ================ */
 window.theme = window.theme || {};
+var mobile = window.innerWidth < 750
 
 theme.Sections = function Sections() {
   this.constructors = {};
@@ -8191,8 +8192,10 @@ theme.Product = (function () {
           evt.preventDefault();
           var mediaId = el.getAttribute('data-thumbnail-id');
 
-          self._switchMedia(mediaId);
-          self._setActiveThumbnail(mediaId);
+          if(!mobile){
+            self._switchMedia(mediaId);
+            self._setActiveThumbnail(mediaId);
+          }
         });
         el.addEventListener('keyup', self.eventHandlers.handleMediaFocus);
       });
@@ -8713,7 +8716,7 @@ theme.Product = (function () {
       if (activeThumbnail) {
         activeThumbnail.classList.add(this.classes.activeClass);
         activeThumbnail.setAttribute('aria-current', true);
-        this._adjustThumbnailSlider(activeThumbnail);
+        if(!mobile) this._adjustThumbnailSlider(activeThumbnail);
       }
     },
 
@@ -8997,8 +9000,10 @@ theme.Product = (function () {
       var mediaId = variant.featured_media.id;
       var sectionMediaId = this.settings.sectionId + '-' + mediaId;
 
-      this._switchMedia(sectionMediaId);
-      this._setActiveThumbnail(sectionMediaId);
+      if(!mobile) {
+        this._switchMedia(sectionMediaId);
+        this._setActiveThumbnail(sectionMediaId)
+      }
     },
 
     _hidePriceComponent: function () {
