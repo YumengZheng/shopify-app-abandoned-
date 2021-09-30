@@ -117,13 +117,13 @@
                       {%- endcapture -%}
 
                       {%- if media.media_type == 'video' or media.media_type =='external_video' -%}
-                        <video  height="300" controls>
+                        <video class="product-single__thumbnail-image product-single__fit-container" controls>
                           <source src={{media.sources[1].url}} type="video/mp4">
                         </video>
                       {%- endif -%}
                       
                       {%- if media.media_type == 'image'-%}
-                      <img class="product-single__thumbnail--{{ section.id }} product-single__thumbnail-image product-single__unique-size" src="{{ media.src | img_url: '500x500', scale: 2 }}" alt="{{ thumbnailAlt }}">
+                      <img class="product-single__thumbnail--{{ section.id }} product-single__thumbnail-image product-single__fit-container" src="{{ media.src | img_url: '500x500', scale: 2 }}" alt="{{ thumbnailAlt }}">
                       {%- if media.media_type == 'model' -%}
                       <div class="product-single__thumbnail-badge">
                         {% include 'icon-3d-badge-full-color' %}

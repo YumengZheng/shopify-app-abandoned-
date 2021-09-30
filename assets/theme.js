@@ -3767,6 +3767,11 @@ theme.Slideshow = (function () {
         this.sliderContainer.classList.add(classes.sliderInitialized);
       }
 
+      var intViewportWidth = window.innerWidth;
+      var galleryHeight = intViewportWidth*0.75
+      var tracker = document.querySelector(".product-single__thumbnails-slider-track")
+      tracker.style.height = galleryHeight+"px"
+
       // Loop through all slider items
       // Set width according to the number of items to show in 1 slide
       // Set container width to accomodate all items
@@ -3777,18 +3782,21 @@ theme.Slideshow = (function () {
 
         var sliderMedia = sliderItem.children[0]
         var sliderMediaWidth = 0;
-        if(sliderMedia.tagName==="VIDEO"){
-          sliderMediaWidth = sliderMedia.videoWidth*300/sliderMedia.videoHeight
-        }
-        if(sliderMedia.tagName==="IMG"){
-          sliderMediaWidth = sliderMedia.naturalWidth*300/sliderMedia.naturalHeight;
-        }
-        console.log("sliderMediaWidth",sliderMediaWidth)
 
-        if(sliderMediaWidth>this.sliderContainer.offsetWidth){
+        if(sliderMedia.tagName==="VIDEO"){
+          sliderMediaWidth = sliderMedia.videoWidth*galleryHeight/sliderMedia.videoHeight;
+        }
+
+        if(sliderMedia.tagName==="IMG"){
+          sliderMediaWidth = sliderMedia.naturalWidth*galleryHeight/sliderMedia.naturalHeight;
+        }
+
+        if(!sliderMediaWidth) sliderMediaWidth = galleryHeight
+
+        if(sliderMediaWidth > this.sliderContainer.offsetWidth){
           sliderMediaWidth = this.sliderContainer.offsetWidth
           sliderItem.style.height = "auto"
-          sliderItem.style.margin = "auto"
+          sliderItem.style.margin = "auto 0"
           sliderMedia.style.minHeight = 0
         }
         this.sliderItemWidthTotal =
