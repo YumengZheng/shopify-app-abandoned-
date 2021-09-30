@@ -3774,18 +3774,26 @@ theme.Slideshow = (function () {
         var sliderItemLink = sliderItem.querySelector(selectors.sliderItemLink);
         sliderItem.setAttribute('aria-hidden', true);
         sliderItem.setAttribute('tabindex', -1);
-        var sliderImage = sliderItem.querySelector("img")
-        var sliderImageWidth = sliderImage.naturalWidth*300/sliderImage.naturalHeight;
-        if(sliderImageWidth>this.sliderContainer.offsetWidth){
-          sliderImageWidth = this.sliderContainer.offsetWidth
+
+        var sliderMedia = sliderItem.children[0]
+        var sliderMediaWidth = 0;
+        if(sliderMedia.tagName==="VIDEO"){
+          sliderMediaWidth = sliderMedia.videoWidth*300/sliderMedia.videoHeight
+        }
+        if(sliderMedia.tagName==="IMG"){
+          sliderMediaWidth = sliderMedia.naturalWidth*300/sliderMedia.naturalHeight;
+        }
+        console.log("sliderMediaWidth",sliderMediaWidth)
+
+        if(sliderMediaWidth>this.sliderContainer.offsetWidth){
+          sliderMediaWidth = this.sliderContainer.offsetWidth
           sliderItem.style.height = "auto"
           sliderItem.style.margin = "auto"
-          sliderImage.style.minHeight = 0
+          sliderMedia.style.minHeight = 0
         }
         this.sliderItemWidthTotal =
-        this.sliderItemWidthTotal + sliderImageWidth
-        sliderItem.style.width = sliderImageWidth + 'px';
-
+        this.sliderItemWidthTotal + sliderMediaWidth
+        sliderItem.style.width = sliderMediaWidth + 'px';
         if (sliderItemLink) {
           sliderItemLink.setAttribute('tabindex', -1);
         }

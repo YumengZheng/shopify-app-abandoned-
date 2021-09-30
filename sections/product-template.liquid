@@ -116,18 +116,22 @@
                         {%- endif -%}
                       {%- endcapture -%}
 
-                      <img class="product-single__thumbnail--{{ section.id }} product-single__thumbnail-image product-single__unique-size" src="{{ media.src | img_url: '500x500', scale: 2 }}" alt="{{ thumbnailAlt }}">
                       {%- if media.media_type == 'video' or media.media_type =='external_video' -%}
-                        <div class="product-single__thumbnail-badge">
-                          {% include 'icon-video-badge-full-color' %}
-                        </div>
+                        <video  height="300" controls>
+                          <source src={{media.sources[1].url}} type="video/mp4">
+                        </video>
                       {%- endif -%}
+                      
+                      {%- if media.media_type == 'image'-%}
+                      <img class="product-single__thumbnail--{{ section.id }} product-single__thumbnail-image product-single__unique-size" src="{{ media.src | img_url: '500x500', scale: 2 }}" alt="{{ thumbnailAlt }}">
                       {%- if media.media_type == 'model' -%}
-                        <div class="product-single__thumbnail-badge">
-                          {% include 'icon-3d-badge-full-color' %}
-                        </div>
+                      <div class="product-single__thumbnail-badge">
+                        {% include 'icon-3d-badge-full-color' %}
+                      </div>
                       {%- endif -%}
-                  <!-- </a> -->
+                      
+                    {%- endif -%}
+                      <!-- </a> -->
                 </li>
               {% endfor %}
 
