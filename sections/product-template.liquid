@@ -62,11 +62,11 @@
       </noscript>
 
         <div data-thumbnail-slider>
-          <div class="thumbnails-wrapper slider-active" data-slider>
-            <ul class="product-single__thumbnails product-single__thumbnails-{{ section.id }}" data-slider-container>
-                <div class="product-single__thumbnails-slider-track" data-slider-track>
+          <div class="thumbnails-wrapper slider-active" product-data-slider>
+            <ul class="product-single__thumbnails product-single__thumbnails-{{ section.id }}" product-data-slider-container>
+                <div class="product-single__thumbnails-slider-track" product-data-slider-track>
               {% for media in product.media %}
-                <li class="product-single__thumbnails-item product-single__thumbnails-item--{{ section.settings.media_size }} product-single__thumbnails-item-slide js" data-slider-slide-index="{{ forloop.index0 }}" data-slider-item>
+                <li class="product-single__thumbnails-item product-single__thumbnails-item--{{ section.settings.media_size }} product-single__thumbnails-item-slide js" product-data-slider-slide-index="{{ forloop.index0 }}" product-data-slider-item>
                       {%- capture thumbnailAlt -%}
                         {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
                           {{ 'sections.featured_product.video_thumbnail_alt' | t: imageAlt: media.alt | escape }}

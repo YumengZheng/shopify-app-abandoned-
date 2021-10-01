@@ -3768,41 +3768,17 @@ theme.Slideshow = (function () {
         this.sliderContainer.classList.add(classes.sliderInitialized);
       }
 
-      var intViewportWidth = window.innerWidth;
-      var galleryHeight = intViewportWidth*0.75
-      var tracker = document.querySelector(".product-single__thumbnails-slider-track")
-      tracker.style.height = galleryHeight+"px"
-
       // Loop through all slider items
       // Set width according to the number of items to show in 1 slide
       // Set container width to accomodate all items
       this.slides.forEach(function (sliderItem, index) {
         var sliderItemLink = sliderItem.querySelector(selectors.sliderItemLink);
+        sliderItem.style.width = this.sliderItemWidth + 'px';
         sliderItem.setAttribute('aria-hidden', true);
         sliderItem.setAttribute('tabindex', -1);
-
-        var sliderMedia = sliderItem.children[0]
-        var sliderMediaWidth = 0;
-
-        if(sliderMedia.tagName==="VIDEO"){
-          sliderMediaWidth = sliderMedia.videoWidth*galleryHeight/sliderMedia.videoHeight;
-        }
-
-        if(sliderMedia.tagName==="IMG"){
-          sliderMediaWidth = sliderMedia.naturalWidth*galleryHeight/sliderMedia.naturalHeight;
-        }
-
-        if(!sliderMediaWidth) sliderMediaWidth = galleryHeight
-
-        if(sliderMediaWidth > this.sliderContainer.offsetWidth){
-          sliderMediaWidth = this.sliderContainer.offsetWidth
-          sliderItem.style.height = "auto"
-          sliderItem.style.margin = "auto 0"
-          sliderMedia.style.minHeight = 0
-        }
         this.sliderItemWidthTotal =
-        this.sliderItemWidthTotal + sliderMediaWidth
-        sliderItem.style.width = sliderMediaWidth + 'px';
+          this.sliderItemWidthTotal + sliderItem.offsetWidth;
+
         if (sliderItemLink) {
           sliderItemLink.setAttribute('tabindex', -1);
         }
@@ -3862,56 +3838,44 @@ theme.Slideshow = (function () {
         'translateX(' + this.touchMovePosition + 'px';
     },
 
-
-    _getTransformWitdh: function (movingSlideIndex) {
-      var currentSlide = this.slides[movingSlideIndex]
-      var currentSlideWidth = currentSlide.style.width
-      var transformWitdh = currentSlideWidth.substring(0, currentSlideWidth.length - 2)
-
-      return parseInt(transformWitdh)
-    },
-
     _onTouchEnd: function (event, direction, difference) {
       var nextTranslateXPosition = 0;
 
       if (Object.keys(difference).length === 0) return;
-      
+
+      var slideDirection = direction === 'left' ? 'next' : '';
+
       if (direction === 'left') {
-        if (this.slideIndex === this.slides.length-1) {
+        if (this._isNextTranslateXLast(this.touchStartPosition)) {
           nextTranslateXPosition = this.touchStartPosition;
         } else {
-          if(Math.abs(difference.xPosition)>10){
-            nextTranslateXPosition =
-            this.touchStartPosition - this._getTransformWitdh(this.slideIndex)
-              this.slideIndex++
-          }
+          nextTranslateXPosition =
+            this.touchStartPosition - this.sliderTranslateXMove;
         }
       } else {
-        if (this.slideIndex === 0) {
+        nextTranslateXPosition =
+          this.touchStartPosition + this.sliderTranslateXMove;
+        if (this._isNextTranslateXFirst(this.touchStartPosition)) {
           nextTranslateXPosition = 0;
-        } else{
-          nextTranslateXPosition =
-            this.touchStartPosition + this._getTransformWitdh(this.slideIndex-1)
-            this.slideIndex--
         }
       }
 
-      // this.slideIndex = this._getNextSlideIndex(slideDirection);
+      this.slideIndex = this._getNextSlideIndex(slideDirection);
 
       this.sliderTrack.style.transition = 'transform 500ms ease 0s';
       this.sliderTrack.style.transform =
         'translateX(' + nextTranslateXPosition + 'px';
 
-      // window.setTimeout(
-      //   function () {
-      //     this.sliderTrack.style.transition = '';
-      //   }.bind(this),
-      //   500
-      // );
+      window.setTimeout(
+        function () {
+          this.sliderTrack.style.transition = '';
+        }.bind(this),
+        500
+      );
 
-      // this._verifyFirstLastSlideTranslateX(nextTranslateXPosition);
+      this._verifyFirstLastSlideTranslateX(nextTranslateXPosition);
 
-      // this._postTransitionEnd();
+      this._postTransitionEnd();
     },
 
     /**
@@ -4327,6 +4291,374 @@ theme.Slideshow = (function () {
         this._setActiveIndicator(this.slideIndex);
       }
     }
+  });
+
+  return Slideshow;
+})();
+
+theme.Productslideshow = (function () {
+  var selectors = {
+    slider: '[product-data-slider]',
+    sliderItem: '[product-data-slider-item]',
+    sliderTrack: '[product-data-slider-track]',
+    sliderContainer: '[product-data-slider-container]'
+  };
+
+  var classes = {
+    indicatorActive: 'slick-active',
+    sliderInitialized: 'slick-initialized',
+    slideActive: 'slideshow__slide--active',
+  };
+
+  function Slideshow(container, options) {
+    this.container = container;
+    this.slider = this.container.querySelector(selectors.slider);
+
+    if (!this.slider) return;
+
+    this.eventHandlers = {};
+    this.lastSlide = 0;
+    this.slideIndex = 0;
+    this.sliderContainer = null;
+    this.slides = [];
+    this.options = Object.assign(
+      {},
+      {
+        canUseTouchEvents: false,
+        slideActiveClass: classes.slideActive,
+        slideInterval: 0,
+        slidesToShow: 0,
+        slidesToScroll: 1,
+        type: 'fade'
+      },
+      options
+    );
+
+    this.sliderContainer = this.slider.querySelector(selectors.sliderContainer);
+    this.adaptHeight =
+      this.sliderContainer.getAttribute('data-adapt-height') === 'true';
+    this.slides = Array.from(
+      this.sliderContainer.querySelectorAll(selectors.sliderItem)
+    );
+    // adding -1 to accomodate Array order
+    this.lastSlide = this.slides.length - 1;
+    if (this.slides.length <= 1) return;
+
+    this.timeout = 250;
+
+    if (this.options.type === 'slide') {
+      this.isFirstSlide = false;
+      this.isLastSlide = false;
+      this.sliderItemWidthTotal = 0;
+      this.sliderTrack = this.slider.querySelector(selectors.sliderTrack);
+      // added setTimeout due to matchMedia calling too early
+      // which result wrong value when getting dimension from an element
+      this.sliderItemWidthTotal = 0;
+      theme.Helpers.promiseStylesheet().then(
+        function () {
+          this._setupSlideType();
+        }.bind(this)
+      );
+    } else {
+      this.setupSlider(0);
+    }
+
+    this._setupEventHandlers();
+  }
+
+  Slideshow.prototype = Object.assign({}, Slideshow.prototype, {
+    /**
+     * Set active states for sliders and indicators
+     * @param {index} integer - Slide index to set up slider from
+     */
+    setupSlider: function (index) {
+      this.slideIndex = index;
+      this._setupActiveSlide(index);
+    },
+
+    /**
+     * Removes event listeners, among other things when wanting to destroy the
+     * slider instance. This method needs to be called manually and will most
+     * likely be included in a section's onUnload() method.
+     */
+    destroy: function () {
+      if (this.adaptHeight) {
+        window.removeEventListener('resize', this.eventHandlers.debounceResize);
+      }
+
+      if (this.options.type === 'slide') {
+        if (this.touchEvents && this.options.canUseTouchEvents) {
+          this.touchEvents.destroy();
+          this.touchEvents = null;
+        }
+      }
+    },
+
+    _setupEventHandlers: function () {
+      if (this.options.type === 'slide') {
+        if (
+          this.options.canUseTouchEvents &&
+          this.options.slidesToScroll < this.slides.length
+        ) {
+          this._setupTouchEvents();
+        }
+      }
+    },
+
+    _setupTouchEvents: function () {
+      this.touchEvents = new theme.TouchEvents(this.sliderTrack, {
+        start: function () {
+          this._onTouchStart();
+        }.bind(this),
+        move: function (event, direction, difference) {
+          this._onTouchMove(event, direction, difference);
+        }.bind(this),
+        end: function (event, direction, difference) {
+          this._onTouchEnd(event, direction, difference);
+        }.bind(this)
+      });
+    },
+
+    /**
+     * Set slideshop for "slide-in" effect
+     * @param {Boolean} onResize if function call came from resize event
+     */
+    _setupSlideType: function (onResize) {
+      this.sliderItemWidth = Math.floor(
+        this.sliderContainer.offsetWidth / this.options.slidesToShow
+      );
+      this.sliderTranslateXMove =
+        this.sliderItemWidth * this.options.slidesToScroll;
+
+      if (!onResize) {
+        this.sliderContainer.classList.add(classes.sliderInitialized);
+      }
+
+      var intViewportWidth = window.innerWidth;
+      var galleryHeight = intViewportWidth*0.75
+      var tracker = document.querySelector(".product-single__thumbnails-slider-track")
+      tracker.style.height = galleryHeight+"px"
+
+      // Loop through all slider items
+      // Set width according to the number of items to show in 1 slide
+      // Set container width to accomodate all items
+      this.slides.forEach(function (sliderItem, index) {
+        sliderItem.setAttribute('aria-hidden', true);
+        sliderItem.setAttribute('tabindex', -1);
+
+        var sliderMedia = sliderItem.children[0]
+        var sliderMediaWidth = 0;
+
+        if(sliderMedia.tagName==="VIDEO"){
+          sliderMediaWidth = sliderMedia.videoWidth*galleryHeight/sliderMedia.videoHeight;
+        }
+
+        if(sliderMedia.tagName==="IMG"){
+          sliderMediaWidth = sliderMedia.naturalWidth*galleryHeight/sliderMedia.naturalHeight;
+        }
+
+        if(!sliderMediaWidth) sliderMediaWidth = galleryHeight
+
+        if(sliderMediaWidth > this.sliderContainer.offsetWidth){
+          sliderMediaWidth = this.sliderContainer.offsetWidth
+          sliderItem.style.height = "auto"
+          sliderItem.style.margin = "auto 0"
+          sliderMedia.style.minHeight = 0
+        }
+        this.sliderItemWidthTotal =
+        this.sliderItemWidthTotal + sliderMediaWidth
+        sliderItem.style.width = sliderMediaWidth + 'px';
+
+        if (index < this.options.slidesToShow) {
+          sliderItem.setAttribute('aria-hidden', false);
+          sliderItem.classList.add(this.options.slideActiveClass)
+        }
+      }, this);
+
+      this.sliderTrack.style.width =
+        Math.floor(this.sliderItemWidthTotal) + 'px';
+      this.sliderTrack.style.transform = 'translateX(-0px)';
+    },
+
+    _onTouchStart: function () {
+      this.touchStartPosition = this._getTranslateXPosition();
+    },
+
+    _onTouchMove: function (event, direction, difference) {
+      // Fix touch events cause unexpected behaviour
+      // when the dragging motion goes beyond the theme editor preview.
+      var threshold = 80;
+      if (
+        Shopify.designMode &&
+        (event.clientX <= threshold ||
+          event.clientX >= window.innerWidth - threshold)
+      ) {
+        event.target.dispatchEvent(
+          new MouseEvent('mouseup', {
+            bubbles: true,
+            cancelable: true
+          })
+        );
+        return;
+      }
+
+      if (direction !== 'left' && direction !== 'right') return;
+
+      this.touchMovePosition = this.touchStartPosition + difference.xPosition;
+
+      this.sliderTrack.style.transform =
+        'translateX(' + this.touchMovePosition + 'px';
+    },
+
+
+    _getTransformWitdh: function (movingSlideIndex) {
+      var currentSlide = this.slides[movingSlideIndex]
+      var currentSlideWidth = currentSlide.style.width
+      var transformWitdh = currentSlideWidth.substring(0, currentSlideWidth.length - 2)
+
+      return parseInt(transformWitdh)
+    },
+
+    _onTouchEnd: function (event, direction, difference) {
+      var nextTranslateXPosition = 0;
+
+      if (Object.keys(difference).length === 0) return;
+      
+      if (direction === 'left') {
+        if (this.slideIndex === this.slides.length-1) {
+          nextTranslateXPosition = this.touchStartPosition;
+        } else {
+          if(Math.abs(difference.xPosition)>10){
+            nextTranslateXPosition =
+            this.touchStartPosition - this._getTransformWitdh(this.slideIndex)
+              this.slideIndex++
+          }
+        }
+      } else {
+        if (this.slideIndex === 0) {
+          nextTranslateXPosition = 0;
+        } else{
+          nextTranslateXPosition =
+            this.touchStartPosition + this._getTransformWitdh(this.slideIndex-1)
+            this.slideIndex--
+        }
+      }
+      this.sliderTrack.style.transition = 'transform 500ms ease 0s';
+      this.sliderTrack.style.transform =
+        'translateX(' + nextTranslateXPosition + 'px';
+    },
+
+    goToSlideByIndex: function (index) {
+      this._setPosition(index);
+
+      if (this.options.type === 'slide' && this.sliderTrack) {
+        this.sliderTrack.style.transition = 'transform 500ms ease 0s';
+        var newPosition = index * this.slides[0].offsetWidth;
+
+        this.sliderTrack.style.transform = 'translateX(-' + newPosition + 'px)';
+
+        if (this.options.slidesToShow > 1) {
+          this._verifyFirstLastSlideTranslateX(newPosition);
+        }
+      }
+    },
+    
+    _setPosition: function (nextSlideIndex) {
+      this.slideIndex = nextSlideIndex;
+      this._setupActiveSlide(nextSlideIndex);
+      this.container.dispatchEvent(
+        new CustomEvent('slider_slide_changed', {
+          detail: nextSlideIndex
+        })
+      );
+    },
+
+    _setupActiveSlide: function (index) {
+      this.slides.forEach(function (slide) {
+        slide.setAttribute('aria-hidden', true);
+        slide.classList.remove(this.options.slideActiveClass);
+      }, this);
+
+      this.slides[index].setAttribute('aria-hidden', false);
+      this.slides[index].classList.add(this.options.slideActiveClass);
+    },
+
+    /**
+     * Increase or decrease index position of the slideshow
+     * Automatically auto-rotate
+     * - Last slide goes to first slide when clicking "next"
+     * - First slide goes to last slide when clicking "previous"
+     * @param {String} direction "next" as a String, other empty string is previous slide
+     */
+    _getNextSlideIndex: function (direction) {
+      var counter = direction === 'next' ? 1 : -1;
+
+      if (direction === 'next') {
+        if (this.slideIndex === this.lastSlide) {
+          return this.options.type === 'slide' ? this.lastSlide : 0;
+        }
+      } else if (!this.slideIndex) {
+        return this.options.type === 'slide' ? 0 : this.lastSlide;
+      }
+
+      return this.slideIndex + counter;
+    },
+
+    /**
+     * In "slide-in" type, multiple items are active in 1 slide
+     * This will return an array containing their indexes
+     */
+    _getActiveSlidesIndex: function () {
+      var currentActiveSlides = this.slides.filter(function (sliderItem) {
+        if (sliderItem.classList.contains(this.options.slideActiveClass)) {
+          return sliderItem;
+        }
+      }, this);
+      var currentActiveSlidesIndex = currentActiveSlides.map(function (
+        sliderItem
+      ) {
+        return Number(sliderItem.getAttribute('product-data-slider-slide-index'));
+      });
+
+      return currentActiveSlidesIndex;
+    },
+
+    /**
+     * Verify if translateX reaches at first or last slide
+     * @param {Number} translateXValue
+     */
+    _verifyFirstLastSlideTranslateX: function (translateXValue) {
+      // first slide
+      if (this._isNextTranslateXFirst(translateXValue)) {
+        this.isFirstSlide = true;
+      } else {
+        this.isFirstSlide = false;
+      }
+
+      // last slide
+      if (this._isNextTranslateXLast(translateXValue)) {
+        this.isLastSlide = true;
+      } else {
+        this.isLastSlide = false;
+      }
+    },
+
+    _getTranslateXPosition: function () {
+      return Number(this.sliderTrack.style.transform.match(/(-?[0-9]+)/g)[0]);
+    },
+
+    _isNextTranslateXFirst: function (translateXValue) {
+      return translateXValue === 0;
+    },
+
+    _isNextTranslateXLast: function (translateXValue) {
+      // because translateX values are using negative, I'm converting into positive value
+      var translateXValueAbsolute = Math.abs(translateXValue);
+      var nextTranslateXValue =
+        translateXValueAbsolute + this.sliderTranslateXMove;
+
+      return nextTranslateXValue >= this.sliderItemWidthTotal;
+    },
   });
 
   return Slideshow;
@@ -8791,6 +9123,20 @@ theme.Product = (function () {
     _initThumbnailSlider: function () {
       setTimeout(
         function () {
+          if(mobile){
+            //ONLY USED FOR PRODUCT PAGE IMAGES
+            this.slideshow = new theme.Productslideshow(
+            this.container.querySelector('[data-thumbnail-slider]'),
+            {
+              canUseTouchEvents: true,
+              type: 'slide',
+              slideActiveClass: 'slick-active',
+              slidesToShow: 1.2,
+              slidesToScroll: 3
+            }
+          );
+        } else {
+          //ORIGINAL SLIDER CODE
           this.slideshow = new theme.Slideshow(
             this.container.querySelector('[data-thumbnail-slider]'),
             {
@@ -8801,6 +9147,7 @@ theme.Product = (function () {
               slidesToScroll: 3
             }
           );
+        }
 
           this.settings.sliderActive = true;
         }.bind(this),
@@ -9349,26 +9696,26 @@ theme.SlideshowSection.prototype = Object.assign(
       this.slideshow.destroy();
     },
 
-    onBlockSelect: function (evt) {
-      if (this.slideshow.adaptHeight) {
-        this.slideshow.setSlideshowHeight();
-      }
+    // onBlockSelect: function (evt) {
+    //   if (this.slideshow.adaptHeight) {
+    //     this.slideshow.setSlideshowHeight();
+    //   }
 
-      // Get slide's index using theme editor's id
-      var slide = this.container.querySelector(
-        '.slideshow__slide--' + evt.detail.blockId
-      );
-      var slideIndex = slide.getAttribute('data-slider-slide-index');
+    //   // Get slide's index using theme editor's id
+    //   var slide = this.container.querySelector(
+    //     '.slideshow__slide--' + evt.detail.blockId
+    //   );
+    //   var slideIndex = slide.getAttribute('data-slider-slide-index');
 
-      // Go to selected slide, pause auto-rotate
-      this.slideshow.setSlide(slideIndex);
-      this.slideshow.stopAutoplay();
-    },
+    //   // Go to selected slide, pause auto-rotate
+    //   this.slideshow.setSlide(slideIndex);
+    //   this.slideshow.stopAutoplay();
+    // },
 
-    onBlockDeselect: function () {
-      // Resume auto-rotate
-      this.slideshow.startAutoplay();
-    }
+    // onBlockDeselect: function () {
+    //   // Resume auto-rotate
+    //   // this.slideshow.startAutoplay();
+    // }
   }
 );
 
