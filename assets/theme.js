@@ -4435,7 +4435,7 @@ theme.Productslideshow = (function () {
       }
 
       var intViewportWidth = window.innerWidth;
-      var galleryHeight = intViewportWidth*0.75
+      var galleryHeight = intViewportWidth/this.options.slidesToShow
       var tracker = document.querySelector(".product-single__thumbnails-slider-track")
       tracker.style.height = galleryHeight+"px"
 
@@ -9131,7 +9131,7 @@ theme.Product = (function () {
               canUseTouchEvents: true,
               type: 'slide',
               slideActiveClass: 'slick-active',
-              slidesToShow: 1.2,
+              slidesToShow: 1.15,
               slidesToScroll: 3
             }
           );

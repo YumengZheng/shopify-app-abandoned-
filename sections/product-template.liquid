@@ -53,7 +53,7 @@
  
    <div class="grid product-single{% if section.settings.enable_payment_button %} product-single--{{ section.settings.media_size }}-media{% endif %}">
     
-    <div class="grid__item product-single__media-group-mobile  {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}" data-product-single-media-group>
+    <div class="grid__item product-single__media-group-mobile" data-product-single-media-group>
       {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
 
       <noscript>
@@ -62,7 +62,7 @@
       </noscript>
 
         <div data-thumbnail-slider>
-          <div class="thumbnails-wrapper slider-active" product-data-slider>
+          <div class="product-thumbnails-wrapper slider-active" product-data-slider>
             <ul class="product-single__thumbnails product-single__thumbnails-{{ section.id }}" product-data-slider-container>
                 <div class="product-single__thumbnails-slider-track" product-data-slider-track>
               {% for media in product.media %}
