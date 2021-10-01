@@ -1556,6 +1556,23 @@ a[href^="tel"] {
 .btn--has-icon-before .icon {
   margin-right: 10px; }
 
+/*================ Add to cart button ================*/
+
+.btn--secondary-accent {
+  background-color: white !important;
+  color: #1A6699 !important;
+  border: 2px solid #1878B9 !important;
+  font-weight: 500 !important;
+  font-size: medium !important;
+  line-height: 2 !important;
+}
+
+.shopify-payment-button__button--unbranded {
+font-weight: 500 !important;
+  font-size: medium !important;
+line-height: 2 !important;
+}
+
 /*================ Force an input/button to look like a text link ================*/
 .text-link {
   display: inline;
