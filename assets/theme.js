@@ -4363,7 +4363,7 @@ theme.Productslideshow = (function () {
       this.setupSlider(0);
     }
 
-    this._setupEventHandlers();
+    this._setupTouchEvents();
   }
 
   Slideshow.prototype = Object.assign({}, Slideshow.prototype, {
@@ -4392,10 +4392,6 @@ theme.Productslideshow = (function () {
           this.touchEvents = null;
         }
       }
-    },
-
-    _setupEventHandlers: function () {
-      this._setupTouchEvents();
     },
 
     _setupTouchEvents: function () {
