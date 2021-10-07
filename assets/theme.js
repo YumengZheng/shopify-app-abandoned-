@@ -4395,14 +4395,7 @@ theme.Productslideshow = (function () {
     },
 
     _setupEventHandlers: function () {
-      if (this.options.type === 'slide') {
-        if (
-          this.options.canUseTouchEvents &&
-          this.options.slidesToScroll < this.slides.length
-        ) {
-          this._setupTouchEvents();
-        }
-      }
+      this._setupTouchEvents();
     },
 
     _setupTouchEvents: function () {
